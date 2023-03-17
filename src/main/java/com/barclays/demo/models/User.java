@@ -1,14 +1,26 @@
 package com.barclays.demo.models;
 
+import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private String username;
     private String email;
-    private int age;
+    private List<Expense> expenses = new ArrayList<>();
 
-    public User(String username, String email, int age){
+    public User(String username, String email, List<Expense> expenses){
         this.username = username;
         this.email = email;
-        this.age = age;
+        this.expenses = expenses;
+    }
+
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+
+    public User() {
     }
 
     public String getUsername() {
@@ -19,10 +31,6 @@ public class User {
         return email;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -31,7 +39,4 @@ public class User {
         this.email = email;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
